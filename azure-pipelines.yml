@@ -6,28 +6,46 @@
 trigger:
 - main
 
-pool: "Default"
+pool: 
+  vmImage: 'Default'  # Sử dụng máy ảo Windows mới nhất để build
 
 variables:
-  solution: '**/*.sln'
+  solution: '**/*.sln'  # Chỉ định file solution cần build
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
 steps:
+# Step 1: Cài đặt NuGet nếu chưa có
 - task: NuGetToolInstaller@1
+  displayName: 'Install NuGet'
 
+# Step 2: Restore NuGet packages
 - task: NuGetCommand@2
+  displayName: 'Restore NuGet Packages'
   inputs:
-    restoreSolution: '$(solution)'
+    command: 'restore'
+    restoreSolution: '$(solution)'  # Chỉ định solution để restore
 
+# Step 3: Build solution bằng Visual Studio Build
 - task: VSBuild@1
+  displayName: 'Build Solution'
   inputs:
     solution: '$(solution)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+# Step 4: Chạy Unit Tests (nếu có)
 - task: VSTest@2
+  displayName: 'Run Unit Tests'
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+# Step 5: Publish artifact để lưu trữ sau khi build thành công
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Build Artifacts'
+  inputs:
+    PathtoPublish: '$(build.artifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
