@@ -1,12 +1,8 @@
-# ASP.NET
-# Build and test ASP.NET projects.
-# Add steps that publish symbols, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
-
 trigger:
 - main
 
-pool: 'Default'  # Sử dụng máy ảo Windows mới nhất để build
+pool:
+  vmImage: 'Default'  # Sử dụng máy ảo Windows mới nhất để build
 
 variables:
   solution: '**/*.sln'  # Chỉ định file solution cần build
@@ -14,39 +10,41 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-# Step 1: Cài đặt NuGet nếu chưa có
-- task: NuGetToolInstaller@1
-  displayName: 'Install NuGet'
+# Step 1: Cài đặt .NET SDK 8.0 (nếu chưa có)
+- task: UseDotNet@2
+  displayName: 'Install .NET 8 SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '8.x.x'  # Sử dụng phiên bản .NET 8.x
+    installationPath: $(Agent.ToolsDirectory)/dotnet
 
-# Step 2: Restore NuGet packages with MSBuild version specified
-- task: NuGetCommand@2
+# Step 2: Restore NuGet packages sử dụng .NET CLI
+- task: DotNetCoreCLI@2
   displayName: 'Restore NuGet Packages'
   inputs:
     command: 'restore'
-    restoreSolution: '$(solution)'  # Chỉ định solution để restore
-    msbuildVersion: '16.0'  # Explicitly specify MSBuild version 16.x or higher to avoid issues with older versions
+    projects: '$(solution)'  # Chỉ định solution để restore
 
-# Step 3: Build solution bằng Visual Studio Build với MSBuild version
-- task: VSBuild@1
+# Step 3: Build solution bằng .NET CLI
+- task: DotNetCoreCLI@2
   displayName: 'Build Solution'
   inputs:
-    solution: '$(solution)'
-    msbuildVersion: '16.0'  # Specify MSBuild version to match with NuGet restore
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'build'
+    projects: '$(solution)'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
 
-# Step 4: Chạy Unit Tests (nếu có)
-- task: VSTest@2
+# Step 4: Chạy Unit Tests (nếu có) bằng .NET CLI
+- task: DotNetCoreCLI@2
   displayName: 'Run Unit Tests'
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'test'
+    projects: '$(solution)'
+    arguments: '--configuration $(buildConfiguration) --no-build --no-restore'
 
 # Step 5: Publish artifact để lưu trữ sau khi build thành công
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Build Artifacts'
   inputs:
-    PathtoPublish: '$(build.artifactStagingDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
