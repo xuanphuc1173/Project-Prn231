@@ -35,6 +35,7 @@ steps:
     command: 'test'
     projects: '$(solution)'
     arguments: '--configuration $(buildConfiguration)'
+      continueOnError: false  # Dừng nếu có lỗi
 # Xây dựng dự án
 - task: DotNetCoreCLI@2
   displayName: 'Build Solution'
