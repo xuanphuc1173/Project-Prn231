@@ -18,18 +18,20 @@ steps:
 - task: NuGetToolInstaller@1
   displayName: 'Install NuGet'
 
-# Step 2: Restore NuGet packages
+# Step 2: Restore NuGet packages with MSBuild version specified
 - task: NuGetCommand@2
   displayName: 'Restore NuGet Packages'
   inputs:
     command: 'restore'
     restoreSolution: '$(solution)'  # Chỉ định solution để restore
+    msbuildVersion: '16.0'  # Explicitly specify MSBuild version 16.x or higher to avoid issues with older versions
 
-# Step 3: Build solution bằng Visual Studio Build
+# Step 3: Build solution bằng Visual Studio Build với MSBuild version
 - task: VSBuild@1
   displayName: 'Build Solution'
   inputs:
     solution: '$(solution)'
+    msbuildVersion: '16.0'  # Specify MSBuild version to match with NuGet restore
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
