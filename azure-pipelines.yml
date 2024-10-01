@@ -1,49 +1,42 @@
+Huy Hoàng
 trigger:
-- main
+- master
 
-pool: 'Default'  # Sử dụng máy ảo Windows mới nhất để build
+pool: "Default"
 
 variables:
-  solution: '**/*.sln'  # Chỉ định file solution cần build
+  solution: '*/.sln'  # Tìm kiếm tất cả các tệp .sln trong thư mục
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
 steps:
-# Step 1: Cài đặt .NET SDK 8.0 (nếu chưa có)
 - task: UseDotNet@2
-  displayName: 'Install .NET 8 SDK'
   inputs:
     packageType: 'sdk'
-    version: '8.x.x'  # Sử dụng phiên bản .NET 8.x
+    version: '8.x'  # Sử dụng SDK .NET 8
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
-# Step 2: Restore NuGet packages sử dụng .NET CLI
+- task: NuGetToolInstaller@1
+
 - task: DotNetCoreCLI@2
-  displayName: 'Restore NuGet Packages'
   inputs:
     command: 'restore'
-    projects: '$(solution)'  # Chỉ định solution để restore
+    projects: '$(solution)'  # Khôi phục gói NuGet cho tất cả các dự án
 
-# Step 3: Build solution bằng .NET CLI
 - task: DotNetCoreCLI@2
-  displayName: 'Build Solution'
   inputs:
     command: 'build'
-    projects: '$(solution)'
-    arguments: '--configuration $(buildConfiguration) --no-restore'
+    projects: '$(solution)'  # Xây dựng tất cả các dự án
+    arguments: '--configuration $(buildConfiguration)'
 
-# Step 4: Chạy Unit Tests (nếu có) bằng .NET CLI
 - task: DotNetCoreCLI@2
-  displayName: 'Run Unit Tests'
   inputs:
-    command: 'test'
-    projects: '$(solution)'
-    arguments: '--configuration $(buildConfiguration) --no-build --no-restore'
+    command: 'publish'
+    projects: '$(solution)'  # Xuất bản tất cả các dự án
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
-# Step 5: Publish artifact để lưu trữ sau khi build thành công
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish Build Artifacts'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'  # Đường dẫn đến thư mục chứa các artefact đã xuất bản
+    ArtifactName: 'drop'  # Tên artefact
+    publishLocation: 'Container'  # Vị trí xuất bản
