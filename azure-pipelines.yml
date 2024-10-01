@@ -6,8 +6,7 @@
 trigger:
 - main
 
-pool: 
-  vmImage: 'Default'  # Sử dụng máy ảo Windows mới nhất để build
+pool: 'Default'  # Sử dụng máy ảo Windows mới nhất để build
 
 variables:
   solution: '**/*.sln'  # Chỉ định file solution cần build
