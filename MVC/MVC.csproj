@@ -6,4 +6,22 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Views\about.cshtml" />
+    <Content Remove="Views\client.cshtml" />
+    <Content Remove="Views\contact.cshtml" />
+    <Content Remove="Views\gallery.cshtml" />
+    <Content Remove="Views\services.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\about.cshtml" />
+    <None Include="Views\Home\client.cshtml" />
+    <None Include="Views\Home\contact.cshtml" />
+    <None Include="Views\Home\gallery.cshtml" />
+    <None Include="Views\Home\services.cshtml" />
+    <None Include="wwwroot\css\.DS_Store" />
+    <None Include="wwwroot\js\.DS_Store" />
+  </ItemGroup>
+
 </Project>

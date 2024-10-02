@@ -5,16 +5,248 @@
       "PackagePath": "staticwebassets\\MVC.bundle.scp.css"
     },
     {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\account.css",
+      "PackagePath": "staticwebassets\\css\\account.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\animate.min.css",
+      "PackagePath": "staticwebassets\\css\\animate.min.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\default-skin.css",
+      "PackagePath": "staticwebassets\\css\\default-skin.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\icomoon.css",
+      "PackagePath": "staticwebassets\\css\\icomoon.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\jquery-ui.css",
+      "PackagePath": "staticwebassets\\css\\jquery-ui.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\jquery.fancybox.min.css",
+      "PackagePath": "staticwebassets\\css\\jquery.fancybox.min.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\jquery.mCustomScrollbar.min.css",
+      "PackagePath": "staticwebassets\\css\\jquery.mCustomScrollbar.min.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\meanmenu.css",
+      "PackagePath": "staticwebassets\\css\\meanmenu.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\nice-select.css",
+      "PackagePath": "staticwebassets\\css\\nice-select.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\normalize.css",
+      "PackagePath": "staticwebassets\\css\\normalize.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\css\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\css\\responsive.css"
+    },
+    {
       "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\slick.css",
+      "PackagePath": "staticwebassets\\css\\slick.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
       "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\about-img.png",
+      "PackagePath": "staticwebassets\\images\\about-img.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\banner-bg.png",
+      "PackagePath": "staticwebassets\\images\\banner-bg.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\banner-img.png",
+      "PackagePath": "staticwebassets\\images\\banner-img.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\client-img1.png",
+      "PackagePath": "staticwebassets\\images\\client-img1.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\client-img2.png",
+      "PackagePath": "staticwebassets\\images\\client-img2.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\icon-1.png",
+      "PackagePath": "staticwebassets\\images\\icon-1.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\icon-2.png",
+      "PackagePath": "staticwebassets\\images\\icon-2.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\icon-3.png",
+      "PackagePath": "staticwebassets\\images\\icon-3.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\img-1.png",
+      "PackagePath": "staticwebassets\\images\\img-1.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\img-2.png",
+      "PackagePath": "staticwebassets\\images\\img-2.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\img-3.png",
+      "PackagePath": "staticwebassets\\images\\img-3.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\quick-icon.png",
+      "PackagePath": "staticwebassets\\images\\quick-icon.png"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\acount.js",
+      "PackagePath": "staticwebassets\\js\\acount.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\custom.js",
+      "PackagePath": "staticwebassets\\js\\custom.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\jquery-3.0.0.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.0.0.min.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\jquery.mCustomScrollbar.concat.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.mCustomScrollbar.concat.min.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\modernizer.js",
+      "PackagePath": "staticwebassets\\js\\modernizer.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\plugin.js",
+      "PackagePath": "staticwebassets\\js\\plugin.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\popper.min.js",
+      "PackagePath": "staticwebassets\\js\\popper.min.js"
+    },
+    {
       "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\slider-setting.js",
+      "PackagePath": "staticwebassets\\js\\slider-setting.js"
     },
     {
       "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\lib\\bootstrap\\LICENSE",

@@ -16,6 +16,7 @@ namespace API.Models
         public string Address { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string DriverLicenseNumber { get; set; }
+        public int Type { get; set; }
 
 
         // Navigation properties

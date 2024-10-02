@@ -18,6 +18,31 @@ namespace MVC.Controllers
             return View();
         }
 
+        public IActionResult about()
+        {
+            return View();
+        }
+
+        public IActionResult contact()
+        {
+            return View();
+        }
+
+        public IActionResult client()
+        {
+            return View();
+        }
+
+        public IActionResult service()
+        {
+            return View();
+        }
+
+        public IActionResult gallery() 
+        {    
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
