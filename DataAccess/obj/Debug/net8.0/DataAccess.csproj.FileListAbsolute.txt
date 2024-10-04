@@ -1,4 +1,3 @@
-D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DataAccess\bin\Debug\net8.0\appsettings.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DataAccess\bin\Debug\net8.0\DataAccess.deps.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DataAccess\bin\Debug\net8.0\DataAccess.dll
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DataAccess\bin\Debug\net8.0\DataAccess.pdb
@@ -15,3 +14,4 @@ D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DataAccess\obj\Debug\net8.0\Data
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DataAccess\obj\Debug\net8.0\refint\DataAccess.dll
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DataAccess\obj\Debug\net8.0\DataAccess.pdb
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DataAccess\obj\Debug\net8.0\ref\DataAccess.dll
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DataAccess\bin\Debug\net8.0\appsettings.BusinessObject.json
