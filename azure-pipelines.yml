@@ -4,84 +4,82 @@ trigger:
 pool: "Default"
 
 variables:
+  solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  apiProject: 'D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\API\API.csproj'  # Đường dẫn đến dự án API
-  mvcProject: 'D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\MVC.csproj'  # Đường dẫn đến dự án MVC
+  apiProject: 'D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\API\API.csproj'  # Đảm bảo rằng đường dẫn này là chính xác
+  mvcProject: 'D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\MVC.csproj' 
 
 steps:
 - task: UseDotNet@2
   displayName: 'Install .NET 8 SDK'
   inputs:
     packageType: 'sdk'
-    version: '8.x'
+    version: '8.x'  # Sử dụng .NET 8
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
 - task: NuGetToolInstaller@1
   displayName: 'Install NuGet'
 
-# Phục hồi NuGet cho API và MVC
 - task: DotNetCoreCLI@2
   displayName: 'Restore NuGet Packages for API'
   inputs:
     command: 'restore'
-    projects: '$(apiProject)'
+    projects: '$(apiProject)'  # Sử dụng biến đường dẫn cụ thể cho API
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore NuGet Packages for MVC'
   inputs:
     command: 'restore'
-    projects: '$(mvcProject)'
+    projects: '$(mvcProject)'  # Sử dụng biến đường dẫn cụ thể cho MVC
 
-# Chạy kiểm tra cho API
+# Chạy các bài kiểm tra cho API
 - task: DotNetCoreCLI@2
   displayName: 'Run Tests for API'
   inputs:
     command: 'test'
     projects: '$(apiProject)'
     arguments: '--configuration $(buildConfiguration)'
-  continueOnError: false  # Dừng nếu có lỗi
 
-# Chạy kiểm tra cho MVC
+# Chạy các bài kiểm tra cho MVC
 - task: DotNetCoreCLI@2
   displayName: 'Run Tests for MVC'
   inputs:
     command: 'test'
     projects: '$(mvcProject)'
     arguments: '--configuration $(buildConfiguration)'
-  continueOnError: false  # Dừng nếu có lỗi
 
-# Xây dựng API
+# Xây dựng dự án API
 - task: DotNetCoreCLI@2
-  displayName: 'Build API'
+  displayName: 'Build API Solution'
   inputs:
     command: 'build'
     projects: '$(apiProject)'
     arguments: '--configuration $(buildConfiguration)'
 
-# Xây dựng MVC
+# Xây dựng dự án MVC
 - task: DotNetCoreCLI@2
-  displayName: 'Build MVC'
+  displayName: 'Build MVC Solution'
   inputs:
     command: 'build'
     projects: '$(mvcProject)'
     arguments: '--configuration $(buildConfiguration)'
 
-# Xuất bản API
+# Xuất bản dự án API
 - task: DotNetCoreCLI@2
-  displayName: 'Publish API'
+  displayName: 'Publish API Solution'
   inputs:
     command: 'publish'
     projects: '$(apiProject)'
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)\api'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/api'
 
-# Xuất bản MVC
+# Xuất bản dự án MVC
 - task: DotNetCoreCLI@2
-  displayName: 'Publish MVC'
+  displayName: 'Publish MVC Solution'
   inputs:
     command: 'publish'
     projects: '$(mvcProject)'
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)\mvc'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/mvc'
 
 # Xuất bản artefacts đã build
 - task: PublishBuildArtifacts@1
