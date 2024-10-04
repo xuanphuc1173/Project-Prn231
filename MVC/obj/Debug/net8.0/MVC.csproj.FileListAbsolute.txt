@@ -6,6 +6,9 @@ D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\MVC.deps.js
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\MVC.runtimeconfig.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\MVC.dll
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\MVC.pdb
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\DTO.dll
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\DTO.pdb
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.csproj.AssemblyReference.cache
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.GeneratedMSBuildEditorConfig.editorconfig
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.AssemblyInfoInputs.cache
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.AssemblyInfo.cs
@@ -24,12 +27,9 @@ D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\staticwebas
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\scopedcss\bundle\MVC.styles.css
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\scopedcss\projectbundle\MVC.bundle.scp.css
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.csproj.Up2Date
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.dll
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\refint\MVC.dll
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.pdb
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.genruntimeconfig.cache
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\ref\MVC.dll
-D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\DTO.dll
-D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\DTO.pdb
-D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.csproj.AssemblyReference.cache
-D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.csproj.Up2Date

@@ -21,7 +21,7 @@
     // Tự động đóng thông báo sau 5 giây
     setTimeout(function () {
         alert.remove();
-    }, 5000);
+    }, 3000);
 
 }
 window.onload = function () {
@@ -31,6 +31,6 @@ window.onload = function () {
         // Tự động đóng thông báo sau 5 giây
         setTimeout(function () {
             alert.remove();
-        }, 5000);
+        }, 3000);
     }
 };

@@ -85,6 +85,18 @@
       "PackagePath": "staticwebassets\\css\\jquery.mCustomScrollbar.min.css"
     },
     {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\material-dashboard.css",
+      "PackagePath": "staticwebassets\\css\\material-dashboard.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\material-dashboard.css.map",
+      "PackagePath": "staticwebassets\\css\\material-dashboard.css.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\material-dashboard.min.css",
+      "PackagePath": "staticwebassets\\css\\material-dashboard.min.css"
+    },
+    {
       "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\meanmenu.css",
       "PackagePath": "staticwebassets\\css\\meanmenu.css"
     },
@@ -95,6 +107,14 @@
     {
       "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\normalize.css",
       "PackagePath": "staticwebassets\\css\\normalize.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\nucleo-icons.css",
+      "PackagePath": "staticwebassets\\css\\nucleo-icons.css"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\nucleo-svg.css",
+      "PackagePath": "staticwebassets\\css\\nucleo-svg.css"
     },
     {
       "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\css\\owl.carousel.min.css",
@@ -209,6 +229,18 @@
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\core\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\js\\core\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\core\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\core\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\core\\popper.min.js",
+      "PackagePath": "staticwebassets\\js\\core\\popper.min.js"
+    },
+    {
       "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\custom.js",
       "PackagePath": "staticwebassets\\js\\custom.js"
     },
@@ -229,12 +261,52 @@
       "PackagePath": "staticwebassets\\js\\jquery.validate.js"
     },
     {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\material-dashboard.js",
+      "PackagePath": "staticwebassets\\js\\material-dashboard.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\material-dashboard.js.map",
+      "PackagePath": "staticwebassets\\js\\material-dashboard.js.map"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\material-dashboard.min.js",
+      "PackagePath": "staticwebassets\\js\\material-dashboard.min.js"
+    },
+    {
       "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\modernizer.js",
       "PackagePath": "staticwebassets\\js\\modernizer.js"
     },
     {
       "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\plugin.js",
       "PackagePath": "staticwebassets\\js\\plugin.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\plugins\\Chart.extension.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\Chart.extension.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\plugins\\bootstrap-notify.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\bootstrap-notify.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\plugins\\chartjs.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\chartjs.min.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\plugins\\countup.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\countup.min.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\plugins\\perfect-scrollbar.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\perfect-scrollbar.min.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\plugins\\smooth-scrollbar.min.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\smooth-scrollbar.min.js"
+    },
+    {
+      "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\plugins\\world.js",
+      "PackagePath": "staticwebassets\\js\\plugins\\world.js"
     },
     {
       "Id": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\js\\popper.min.js",

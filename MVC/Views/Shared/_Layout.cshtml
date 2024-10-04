@@ -1,68 +1,54 @@
 ﻿@{
-    var userName = Context.Session.GetString("UserName"); // Lấy tên từ session
+    var userName = Context.Session.GetString("FullName"); // Lấy tên từ session
 }
 @{
     var userId = Context.Session.GetInt32("AccountId"); // Lấy tên từ session
 }
-@{
-    Layout = null;
-}
+
 @inject IHttpContextAccessor HttpContextAccessor
 
-@* @if (TempData["SuccessMessage"] != null)
+@if (TempData["SuccessMessage"] != null)
 {
     <div id="alertContainer">
         <div class="alert alert-success alert-dismissible fade show custom-alert" role="alert">
             <i class="fa-solid fa-circle-check"></i>
             <div>
                 <strong>@TempData["SuccessMessage"]</strong><br />
-                <span>@TempData["UserName"]</span>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <span>@TempData["FullName"]</span>
+@*                 <button type="button" class="btn-close" data-bs-dismiss="alert">
+                    <i class="fa-solid fa-x"></i>
+                </button> *@
             </div>
             <div class="progress-bar"></div>
         </div>
     </div>
 }
- *@
+
 <!DOCTYPE html>
 <html>
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>Trator</title>
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trator</title>
     <link rel="shortcut icon" type="image/png" href="/images/logo.png" />
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-    <link rel="stylesheet" href="/css/site.css  ">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="icon" href="/images/fevicon.png" type="image/gif" />
+    <link rel="stylesheet" href="/css/site.css">
 
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="/images/fevicon.png" type="image/gif" />
-      <!-- font css -->
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-   </head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
    <body>
       <!-- header section start -->
       <div class="header_section">
          <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-               <a class="navbar-brand"href="index.html"><img src="/images/logo.png"></a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="/images/logo.png"></a>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
@@ -71,7 +57,7 @@
                         @if (HttpContextAccessor.HttpContext.Session.GetInt32("Type") == 1)
                         {
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a>
+                                <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link"  asp-action="about" asp-controller="Home">About</a>
@@ -87,17 +73,42 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact</a>
-                            </li>                    
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="fa fa-user-o" aria-hidden="true"></i></a>
+
+                                <ul class="sub-menu" style="position: absolute;
+    background-color: white;
+    width: 210px;
+    height: 200px;
+    display: none;
+    list-style: none;
+    padding-left: 10px;">
+
+                                    <li>
+                                        <a asp-controller="EditProfile" asp-action="Index" asp-route-Id="@((int?)Context.Session.GetInt32("AccountId"))">Edit Profile</a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="ChangePassword" asp-action="ChangePassword" asp-route-Id="@((int?)Context.Session.GetInt32("AccountId"))">Change Password</a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Account" asp-action="Logout">
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
                         }
                         else if (HttpContextAccessor.HttpContext.Session.GetInt32("Type") == 0)
                         {
-                            <partial name="~/Views/Admin/AdminHome.cshtml" />
+                            @await Html.PartialAsync("~/Views/Admin/AdminHome.cshtml")
+
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a>
+                                <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-action="about" asp-controller="Home">About</a>

@@ -39,6 +39,7 @@ namespace API.Controllers
             // Trả về DTO response
             var responseDto = new LoginDTO
             {
+                FullName = customer.FullName,
                 Email = customer.Email,
                 Type = customer.Type,
                 CustomerId = customer.CustomerId,

@@ -22,6 +22,16 @@
     <None Include="Views\Home\services.cshtml" />
     <None Include="wwwroot\css\.DS_Store" />
     <None Include="wwwroot\js\.DS_Store" />
+    <None Include="wwwroot\js\core\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\js\core\bootstrap.min.js" />
+    <None Include="wwwroot\js\core\popper.min.js" />
+    <None Include="wwwroot\js\plugins\bootstrap-notify.js" />
+    <None Include="wwwroot\js\plugins\Chart.extension.js" />
+    <None Include="wwwroot\js\plugins\chartjs.min.js" />
+    <None Include="wwwroot\js\plugins\countup.min.js" />
+    <None Include="wwwroot\js\plugins\perfect-scrollbar.min.js" />
+    <None Include="wwwroot\js\plugins\smooth-scrollbar.min.js" />
+    <None Include="wwwroot\js\plugins\world.js" />
   </ItemGroup>
 
   <ItemGroup>

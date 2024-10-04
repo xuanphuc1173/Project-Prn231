@@ -33,7 +33,7 @@ namespace MVC.Controllers
             {
                 // Nếu không hợp lệ, quay lại view với lỗi
                 TempData["ErrorMessage"] = "Please provide both email and password.";
-                return View(dto);
+                return View("~/Views/Account/Index.cshtml", dto);
             }
             var client = _httpClientFactory.CreateClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -45,24 +45,39 @@ namespace MVC.Controllers
             {
                 var result = await response.Content.ReadFromJsonAsync<LoginDTO>();
 
-                // Lưu thông tin vào session
                 HttpContext.Session.SetString("Email", result.Email);
+                HttpContext.Session.SetString("FullName", result.FullName);
                 HttpContext.Session.SetInt32("Type", result.Type);
                 HttpContext.Session.SetInt32("MemberId", result.CustomerId);
                 HttpContext.Session.SetString("Password", result.Password);
-                Console.WriteLine(result);
-                TempData["SuccessMessage"] = "Login successful!";
-                return RedirectToAction("Index", "Home");
+                if (result.Type == 1)
+                {
+                    TempData["SuccessMessage"] = "Login successful!";
+                    TempData["FullName"] = "Welcome " + result.FullName;
+                    return RedirectToAction("Index", "Home");
+                }
+                else if (result.Type == 0)
+                {
+                    TempData["SuccessMessage"] = "Login successful!";
+                    return RedirectToAction("AdminHome", "Admin");
+                }
             }
             else
             {
-                // Lấy thông báo lỗi từ server
                 var errorMessage = await response.Content.ReadAsStringAsync();
                 TempData["ErrorMessage"] = $"Invalid Email or Password! {errorMessage}";
                 return View("~/Views/Account/Index.cshtml",dto);
             }
+            TempData["ErrorMessage"] = "Unexpected error. Please try again.";
+            return View("~/Views/Account/Index.cshtml", dto);
         }
-
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("Type");
+            HttpContext.Session.Remove("Email");
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 }
