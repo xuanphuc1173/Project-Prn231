@@ -25,30 +25,46 @@ steps:
     command: 'restore'
     projects: '$(solution)'
 
-# Chạy các bài kiểm tra
+# Chạy các bài kiểm tra cho cả API và MVC
 - task: DotNetCoreCLI@2
-  displayName: 'Run Tests'
+  displayName: 'Run Tests for API and MVC'
   inputs:
     command: 'test'
     projects: '$(solution)'
     arguments: '--configuration $(buildConfiguration)'
   continueOnError: false  # Dừng nếu có lỗi
 
-# Xây dựng dự án
+# Xây dựng dự án API
 - task: DotNetCoreCLI@2
-  displayName: 'Build Solution'
+  displayName: 'Build API'
   inputs:
     command: 'build'
-    projects: '$(solution)'
+    projects: '**/API.csproj'  # Thay thế bằng đường dẫn đến project API của bạn
     arguments: '--configuration $(buildConfiguration)'
 
-# Xuất bản dự án
+# Xuất bản API
 - task: DotNetCoreCLI@2
-  displayName: 'Publish Solution'
+  displayName: 'Publish API'
   inputs:
     command: 'publish'
-    projects: '$(solution)'
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    projects: '**/API.csproj'  # Thay thế bằng đường dẫn đến project API của bạn
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/api'
+
+# Xây dựng dự án MVC
+- task: DotNetCoreCLI@2
+  displayName: 'Build MVC'
+  inputs:
+    command: 'build'
+    projects: '**/MVC.csproj'  
+    arguments: '--configuration $(buildConfiguration)'
+
+# Xuất bản MVC
+- task: DotNetCoreCLI@2
+  displayName: 'Publish MVC'
+  inputs:
+    command: 'publish'
+    projects: '**/MVC.csproj'  # Thay thế bằng đường dẫn đến project MVC của bạn
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/mvc'
 
 # Xuất bản artefacts đã build
 - task: PublishBuildArtifacts@1
