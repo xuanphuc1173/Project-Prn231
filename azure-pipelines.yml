@@ -4,56 +4,49 @@ trigger:
 pool: "Default"
 
 variables:
-  solution: '**/*.sln'
+  solution: '**/*.sln'  # Tìm kiếm tất cả các tệp .sln trong thư mục
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Install .NET 8 SDK'
   inputs:
     packageType: 'sdk'
-    version: '8.x'
+    version: '8.x'  # Sử dụng SDK .NET 8
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
 - task: NuGetToolInstaller@1
-  displayName: 'Install NuGet'
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore NuGet Packages'
   inputs:
     command: 'restore'
-    projects: '$(solution)'
-
-# Chạy các bài kiểm tra
+    projects: '$(solution)'  # Khôi phục gói NuGet cho tất cả các dự án
+    
 - task: DotNetCoreCLI@2
   displayName: 'Run Tests'
   inputs:
     command: 'test'
-    projects: '$(solution)'
+    projects: '$(solution)'  # Chạy bài kiểm tra cho tất cả các dự án
     arguments: '--configuration $(buildConfiguration)'
-  continueOnError: false  # Dừng nếu có lỗi
-
-# Xây dựng dự án
+    
 - task: DotNetCoreCLI@2
   displayName: 'Build Solution'
   inputs:
     command: 'build'
-    projects: '$(solution)'
+    projects: '$(solution)'  # Xây dựng tất cả các dự án
     arguments: '--configuration $(buildConfiguration)'
 
-# Xuất bản dự án
 - task: DotNetCoreCLI@2
   displayName: 'Publish Solution'
   inputs:
     command: 'publish'
-    projects: '$(solution)'
+    projects: '$(solution)'  # Xuất bản tất cả các dự án
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
-# Xuất bản artefacts đã build
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Build Artifacts'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'  # Đường dẫn đến thư mục chứa các artefact đã xuất bản
+    ArtifactName: 'drop'  # Tên artefact
+    publishLocation: 'Container'  # Vị trí xuất bản
