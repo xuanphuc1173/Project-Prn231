@@ -1,3 +1,4 @@
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\BusinessObject\bin\Debug\net8.0\appsettings.BusinessObject.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\BusinessObject\bin\Debug\net8.0\BusinessObject.deps.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\BusinessObject\bin\Debug\net8.0\BusinessObject.runtimeconfig.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\BusinessObject\bin\Debug\net8.0\BusinessObject.dll
@@ -13,4 +14,3 @@ D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\BusinessObject\obj\Debug\net8.0\
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\BusinessObject\obj\Debug\net8.0\BusinessObject.pdb
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\BusinessObject\obj\Debug\net8.0\BusinessObject.genruntimeconfig.cache
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\BusinessObject\obj\Debug\net8.0\ref\BusinessObject.dll
-D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\BusinessObject\bin\Debug\net8.0\appsettings.BusinessObject.json
