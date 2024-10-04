@@ -18,23 +18,27 @@ steps:
 - task: NuGetToolInstaller@1
 
 - task: DotNetCoreCLI@2
+  displayName: 'Restore NuGet Packages'
   inputs:
     command: 'restore'
     projects: '$(solution)'  # Khôi phục gói NuGet cho tất cả các dự án
 
 - task: DotNetCoreCLI@2
+  displayName: 'Build Solution'
   inputs:
     command: 'build'
     projects: '$(solution)'  # Xây dựng tất cả các dự án
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Publish Solution'
   inputs:
     command: 'publish'
     projects: '$(solution)'  # Xuất bản tất cả các dự án
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish Build Artifacts'
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'  # Đường dẫn đến thư mục chứa các artefact đã xuất bản
     ArtifactName: 'drop'  # Tên artefact
