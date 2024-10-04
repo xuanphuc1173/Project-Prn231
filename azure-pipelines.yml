@@ -7,8 +7,8 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  apiProject: 'D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\API\API.csproj'  # Đảm bảo rằng đường dẫn này là chính xác
-  mvcProject: 'D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\MVC.csproj' 
+  apiProject: '$(Build.SourcesDirectory)/API/API.csproj' 
+  mvcProject:  '$(Build.SourcesDirectory)/MVC/MVC.csproj' 
 
 steps:
 - task: UseDotNet@2
