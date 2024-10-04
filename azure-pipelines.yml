@@ -22,7 +22,14 @@ steps:
   inputs:
     command: 'restore'
     projects: '$(solution)'  # Khôi phục gói NuGet cho tất cả các dự án
-
+    
+- task: DotNetCoreCLI@2
+  displayName: 'Run Tests'
+  inputs:
+    command: 'test'
+    projects: '$(solution)'  # Chạy bài kiểm tra cho tất cả các dự án
+    arguments: '--configuration $(buildConfiguration)'
+    
 - task: DotNetCoreCLI@2
   displayName: 'Build Solution'
   inputs:
