@@ -4,7 +4,7 @@ trigger:
 pool: "Default"
 
 variables:
-  solution: '*/.sln'  # Tìm kiếm tất cả các tệp .sln trong thư mục
+  solution: '**/*.sln'  # Tìm kiếm tất cả các tệp .sln trong thư mục
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
