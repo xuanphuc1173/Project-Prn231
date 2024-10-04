@@ -1,4 +1,30 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var userName = Context.Session.GetString("UserName"); // Lấy tên từ session
+}
+@{
+    var userId = Context.Session.GetInt32("AccountId"); // Lấy tên từ session
+}
+@{
+    Layout = null;
+}
+@inject IHttpContextAccessor HttpContextAccessor
+
+@* @if (TempData["SuccessMessage"] != null)
+{
+    <div id="alertContainer">
+        <div class="alert alert-success alert-dismissible fade show custom-alert" role="alert">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+                <strong>@TempData["SuccessMessage"]</strong><br />
+                <span>@TempData["UserName"]</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+}
+ *@
+<!DOCTYPE html>
 <html>
    <head>
       <!-- basic -->
@@ -10,10 +36,13 @@
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
       <title>Trator</title>
+    <link rel="shortcut icon" type="image/png" href="/images/logo.png" />
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- bootstrap css -->
+    <link rel="stylesheet" href="/css/site.css  ">
+
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
       <!-- style css -->
       <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -33,34 +62,63 @@
       <div class="header_section">
          <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-               <a class="navbar-brand"href="index.html"><img src="images/logo.png"></a>
+               <a class="navbar-brand"href="index.html"><img src="/images/logo.png"></a>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto">
-                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link"  asp-action="about" asp-controller="Home">About</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link"  asp-action="service" asp-controller="Home">Services</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Vehicles</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link"  asp-action="client" asp-controller="Home">Client</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                     </li>                    
-                     <li class="nav-item">
-                            <a class="nav-link" style="margin-left: 100px; background: #ff3c00; border-radius: 50px; color: white" asp-action="Index" asp-controller="Account">Login</a>
-                     </li>
-                  </ul>
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("Type") == 1)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  asp-action="about" asp-controller="Home">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  asp-action="service" asp-controller="Home">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="gallery.html">Vehicles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  asp-action="client" asp-controller="Home">Client</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>                    
+
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetInt32("Type") == 0)
+                        {
+                            <partial name="~/Views/Admin/AdminHome.cshtml" />
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="about" asp-controller="Home">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="service" asp-controller="Home">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="gallery.html">Vehicles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="client" asp-controller="Home">Client</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="margin-left: 100px; background: #ff3c00; border-radius: 50px; color: white" asp-action="Index" asp-controller="Account">Login</a>
+                            </li>
+                        }
+                    </ul>
                   <form class="form-inline my-2 my-lg-0">
                   </form>
                </div>
@@ -484,6 +542,8 @@
       <script src="/js/bootstrap.bundle.min.js"></script>
       <script src="/js/jquery-3.0.0.min.js"></script>
       <script src="/js/plugin.js"></script>
+    <script src="/js/site.js"></script>
+
       <!-- sidebar -->
       <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="/js/custom.js"></script>

@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using API.Models;
+using BusinessObject;
+using Repositories;
 
 namespace API.Controllers
 {
@@ -13,25 +14,26 @@ namespace API.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        private readonly CarRentalDbContext _context;
+        private readonly ICarRepository carRepository;
 
-        public CarsController(CarRentalDbContext context)
+        public CarsController()
         {
-            _context = context;
+            carRepository = new CarRepository();    
         }
 
         // GET: api/Cars
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Car>>> GetCars()
+        public async Task<IEnumerable<Car>> GetCars()
         {
-            return await _context.Cars.ToListAsync();
+            var car = await carRepository.GetCarAll();
+            return car;
         }
 
         // GET: api/Cars/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Car>> GetCar(int id)
         {
-            var car = await _context.Cars.FindAsync(id);
+            var car = await carRepository.GetCarById(id);
 
             if (car == null)
             {
@@ -44,64 +46,51 @@ namespace API.Controllers
         // PUT: api/Cars/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCar(int id, Car car)
+        public async Task<IActionResult> PutCar(int id,[FromBody] Car car)
         {
-            if (id != car.CarId)
+            if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
-            _context.Entry(car).State = EntityState.Modified;
-
-            try
+            var existingItem = await carRepository.GetCarById(id);
+            if (existingItem == null)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CarExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound();
             }
 
-            return NoContent();
+            car.CarId = id;
+            await carRepository.Update(car);
+
+            return Ok("Update success!");
         }
 
         // POST: api/Cars
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Car>> PostCar(Car car)
+        public async Task<ActionResult> PostCar([FromBody]Car car)
         {
-            _context.Cars.Add(car);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetCar", new { id = car.CarId }, car);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            await carRepository.Add(car);
+            return Ok(car);
         }
 
         // DELETE: api/Cars/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCar(int id)
         {
-            var car = await _context.Cars.FindAsync(id);
-            if (car == null)
+            var exist = await carRepository.GetCarById(id);
+            if (exist == null)
             {
                 return NotFound();
             }
-
-            _context.Cars.Remove(car);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            await carRepository.Delete(id);
+            return Ok("Delete success");
         }
 
-        private bool CarExists(int id)
-        {
-            return _context.Cars.Any(e => e.CarId == id);
-        }
+
     }
 }

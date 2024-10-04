@@ -1,8 +1,16 @@
-var builder = WebApplication.CreateBuilder(args);
+﻿var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient();
+builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddSession(options =>
+{
+	options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian session sẽ tồn tại
+	options.Cookie.HttpOnly = true; // Bảo mật session
+	options.Cookie.IsEssential = true; // Bắt buộc phải có cookie
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -15,6 +23,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSession();
 
 app.UseRouting();
 
