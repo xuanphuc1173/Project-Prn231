@@ -1,0 +1,203 @@
+﻿@{
+    var userName = Context.Session.GetString("FullName"); // Lấy tên từ session
+}
+@{
+    var userId = Context.Session.GetInt32("AccountId"); // Lấy tên từ session
+}
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div id="alertContainer">
+        <div class="alert alert-success alert-dismissible fade show custom-alert" role="alert">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+                <strong>@TempData["SuccessMessage"]</strong><br />
+                <span>@TempData["FullName"]</span>
+            </div>
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trator</title>
+    <link rel="shortcut icon" type="image/png" href="/images/logo.png" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="icon" href="/images/fevicon.png" type="image/gif" />
+    <link rel="stylesheet" href="/css/site.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="/images/logo.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("Type") == 1)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">Vehicles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">Client</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">Contact</a>
+                            </li>
+                            <li class="nav-item has-submenu">
+                                <a class="nav-link"><i class="fa-solid fa-user" aria-hidden="true" style="margin-top:5px;padding-bottom: 10px;"></i></a>
+                                <ul class="sub-menu" style="position: absolute; background-color: white; width: 210px; height: 200px; display: none; list-style: none; padding-left: 10px; margin-left: 20px;">
+                                    <li style="padding: 10px;font-size: 20px;">
+                                        <a asp-controller="EditProfile" asp-action="Index" asp-route-Id="@((int?)Context.Session.GetInt32("AccountId"))">Edit Profile</a>
+                                    </li>
+                                    <li style="padding: 10px;font-size: 20px;">
+                                        <a asp-controller="ChangePassword" asp-action="ChangePassword" asp-route-Id="@((int?)Context.Session.GetInt32("AccountId"))">Change Password</a>
+                                    </li>
+                                    <li style="padding: 10px;font-size: 20px;">
+                                        <a asp-controller="Account" asp-action="Logout">Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const navItem = document.querySelector('.nav-item.has-submenu');
+                                    const subMenu = navItem.querySelector('.sub-menu');
+
+                                    navItem.addEventListener('mouseenter', function () {
+                                        subMenu.style.display = 'block';
+                                    });
+
+                                    navItem.addEventListener('mouseleave', function () {
+                                        subMenu.style.display = 'none';
+                                    });
+                                });
+                            </script>
+                        }
+                        else if (HttpContextAccessor.HttpContext.Session.GetInt32("Type") == 0)
+                        {
+                            @await Html.PartialAsync("~/Views/Admin/AdminHome.cshtml")
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="about" asp-controller="Home">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="service" asp-controller="Home">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="gallery.html">Vehicles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="client" asp-controller="Home">Client</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="margin-left: 100px; background: #ff3c00; border-radius: 50px; color: white" asp-action="Index" asp-controller="Account">Login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+
+    <div class="container mt-5">
+        <!-- Car Details Section -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h3 class="card-title text-center">Car Details</h3>
+                <dl class="row">
+                    <dt class="col-sm-3 font-weight-bold">Brand</dt>
+                    <dd class="col-sm-9">@Model.Brand</dd>
+
+                    <dt class="col-sm-3 font-weight-bold">Model</dt>
+                    <dd class="col-sm-9">@Model.Model</dd>
+
+                    <dt class="col-sm-3 font-weight-bold">Year</dt>
+                    <dd class="col-sm-9">@Model.Year</dd>
+
+                    <dt class="col-sm-3 font-weight-bold">Color</dt>
+                    <dd class="col-sm-9">@Model.Color</dd>
+
+                    <dt class="col-sm-3 font-weight-bold">License Plate</dt>
+                    <dd class="col-sm-9">@Model.LicensePlate</dd>
+
+                    <dt class="col-sm-3 font-weight-bold">Price Per Day</dt>
+                    <dd class="col-sm-9">@Model.PricePerDay</dd>
+
+                    <dt class="col-sm-3 font-weight-bold">Category ID</dt>
+                    <dd class="col-sm-9">@Model.CategoryId</dd>
+
+                    <dt class="col-sm-3 font-weight-bold">Description</dt>
+                    <dd class="col-sm-9">@Model.Description</dd>
+
+                    <dt class="col-sm-3 font-weight-bold">Image</dt>
+                    <dd class="col-sm-9">
+                        <img src="data:image/jpeg;base64,@Model.ImageUrl" class="img-fluid rounded" alt="Car Image" />
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h4 class="card-title text-center mb-4">Book this Car</h4>
+                <form method="post" asp-action="BookCar">
+                    <input type="hidden" name="carId" value="@Model.CarId" />
+                    <div class="form-group">
+                        <label for="rentalDate">Rental Date</label>
+                        <input type="date" class="form-control" id="rentalDate" name="rentalDate" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="returnDate">Return Date</label>
+                        <input type="date" class="form-control" id="returnDate" name="returnDate" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="pickupLocation">Pickup Location</label>
+                        <input type="text" class="form-control" id="pickupLocation" name="pickupLocation" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

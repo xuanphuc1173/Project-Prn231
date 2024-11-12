@@ -20,6 +20,8 @@
     <None Include="Views\Home\contact.cshtml" />
     <None Include="Views\Home\gallery.cshtml" />
     <None Include="Views\Home\services.cshtml" />
+    <None Include="Views\Profile\Edit.cshtml" />
+    <None Include="Views\Profile\Index.cshtml" />
     <None Include="wwwroot\css\.DS_Store" />
     <None Include="wwwroot\js\.DS_Store" />
     <None Include="wwwroot\js\core\bootstrap.bundle.min.js" />
@@ -45,6 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
   </ItemGroup>
 

@@ -12,5 +12,10 @@ namespace MVC.Controllers
         {
             return View();
         }
+        public IActionResult Chatbox()
+        {
+            return View();
+        }
+
     }
 }

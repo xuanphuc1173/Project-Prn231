@@ -1,6 +1,8 @@
-﻿using Service;
+﻿using MVC.Hubs;
+using Service;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSignalR();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -19,6 +21,7 @@ void ConfigureHttpClient(HttpClient client)
 }
 builder.Services.AddHttpClient<ICustomerService, CustomerService>(ConfigureHttpClient);
 builder.Services.AddHttpClient<ICarService, CarService>(ConfigureHttpClient);
+builder.Services.AddHttpClient<ICarCategoryService, CarCategoryService>(ConfigureHttpClient);
 
 var app = builder.Build();
 
@@ -33,6 +36,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
+app.MapHub<ChatHub>("/chathub");
 
 app.UseRouting();
 

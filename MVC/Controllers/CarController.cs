@@ -52,7 +52,7 @@ namespace MVC.Controllers
             {
                 using var content = new MultipartFormDataContent();
 
-                // Thêm các thông tin khác của sách vào nội dung
+                // Thêm các thông tin khác của xe vào nội dung
                 content.Add(new StringContent(car.Brand), nameof(car.Brand));
                 content.Add(new StringContent(car.Color), nameof(car.Color));
                 content.Add(new StringContent(car.LicensePlate), nameof(car.LicensePlate));
@@ -74,7 +74,12 @@ namespace MVC.Controllers
                         memoryStream.Position = 0;
                         var fileContent = new StreamContent(memoryStream);
                         fileContent.Headers.ContentType = new MediaTypeHeaderValue(car.ImageUrl.ContentType);
-                        content.Add(fileContent, "Image", car.ImageUrl.FileName);
+                        content.Add(fileContent, "ImageUrl", car.ImageUrl.FileName);
+                    }
+                    catch (IOException ioEx)
+                    {
+                        ModelState.AddModelError("Image", $"Image processing failed due to IO error: {ioEx.Message}");
+                        return View("~/Views/Admin/Car/Create.cshtml", car);
                     }
                     catch (Exception ex)
                     {
@@ -88,12 +93,25 @@ namespace MVC.Controllers
                     return View("~/Views/Admin/Car/Create.cshtml", car);
                 }
 
-                await carService.Add(content);
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    await carService.Add(content);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (HttpRequestException httpEx)
+                {
+                    ModelState.AddModelError("", $"HTTP request error: {httpEx.Message}");
+                    return View("~/Views/Admin/Car/Create.cshtml", car);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", $"Unexpected error while adding the car: {ex.Message}");
+                    return View("~/Views/Admin/Car/Create.cshtml", car);
+                }
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("", $"Error: {ex.Message}");
+                ModelState.AddModelError("", $"General error: {ex.Message}");
                 return View("~/Views/Admin/Car/Create.cshtml", car);
             }
         }

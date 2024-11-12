@@ -18,9 +18,9 @@ namespace MVC.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var books = await carService.GetCarAll();
+            var car = await carService.GetCarAll();
 
-            return View(books);
+            return View(car);
         }
 
         public IActionResult about()

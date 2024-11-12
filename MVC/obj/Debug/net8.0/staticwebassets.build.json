@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eWJsnWzRx9UMo7CMjOm6dqpH8TGvGSzW9hNUC7slAIs=",
+  "Hash": "wodU8VvAkz1LuxgQOhQGpBFIj3O5GPf0sC78EKOZCgo=",
   "Source": "MVC",
   "BasePath": "_content/MVC",
   "Mode": "Default",
@@ -756,6 +756,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\banner-img.png"
+    },
+    {
+      "Identity": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\chatbox.png",
+      "SourceId": "MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\",
+      "BasePath": "_content/MVC",
+      "RelativePath": "images/chatbox.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\chatbox.png"
     },
     {
       "Identity": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\MVC\\wwwroot\\images\\client-img1.png",

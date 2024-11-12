@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DTO.CarDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    @if (Model != null && Model.Any())
+    {
+        <div class="row" id="product-list">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4 product-item" data-product-id="@item.CarId">
+                    <div class="card h-100" style="width: 18rem;">
+                        <img src="data:image/jpeg;base64,@item.ImageUrl" class="card-img-top" alt="Product Image" />
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title text-primary">@item.Brand</h5>
+                                <p class="card-text fw-bold">@item.Model</p>
+                            </div>
+
+                            <p>Price: @item.PricePerDay</p>
+
+                            <!-- Booking Form -->
+                            <form asp-controller="Client" asp-action="Details" method="get">
+                                <input type="hidden" name="id" value="@item.CarId" />
+                                <button class="btn btn-primary">Book</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No products available.</p>
+    }
+</div>

@@ -48,7 +48,7 @@ namespace MVC.Controllers
                 HttpContext.Session.SetString("Email", result.Email);
                 HttpContext.Session.SetString("FullName", result.FullName);
                 HttpContext.Session.SetInt32("Type", result.Type);
-                HttpContext.Session.SetInt32("MemberId", result.CustomerId);
+                HttpContext.Session.SetInt32("CustomerId", result.CustomerId);
                 HttpContext.Session.SetString("Password", result.Password);
                 if (result.Type == 1)
                 {

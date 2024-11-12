@@ -86,10 +86,10 @@
         padding-left: 10px;
     margin-left: 20px;">
                                     <li style="padding: 10px;font-size: 20px;">
-                                        <a asp-controller="EditProfile" asp-action="Index" asp-route-Id="@((int?)Context.Session.GetInt32("AccountId"))">Edit Profile</a>
+                                        <a asp-controller="Profile" asp-action="Index" asp-route-Id="@((int?)Context.Session.GetInt32("CustomerId"))">Edit Profile</a>
                                     </li>
                                     <li style="padding: 10px;font-size: 20px;">
-                                        <a asp-controller="ChangePassword" asp-action="ChangePassword" asp-route-Id="@((int?)Context.Session.GetInt32("AccountId"))">Change Password</a>
+                                        <a asp-controller="ChangePassword" asp-action="ChangePassword" asp-route-Id="@((int?)Context.Session.GetInt32("CustomerId"))">Change Password</a>
                                     </li>
                                     <li style="padding: 10px;font-size: 20px;">
                                         <a asp-controller="Account" asp-action="Logout">Logout</a>
@@ -111,6 +111,29 @@
                                 });
 
                             </script>
+                            <!-- Chat Box -->
+                            <a href="#" class="messenger-button" id="messengerButton">
+                                <img src="/images/chatbox.png" alt="Messenger" class="messenger-icon">
+                            </a>
+                            <div class="chat-box" id="chatBox">
+                                <div class="chat-header">
+                                    <i class="fa-regular fa-comment-dots" style=" margin-right: 8px;margin-left: 55px;margin-bottom: 7px; font-size: 20px;"></i>
+                                    <h5 style="    margin-right: 35px;">
+                                        Chat with us
+                                    </h5>
+                                    <button class="close-button" id="closeChat">x</button>
+                                </div>
+                                <div class="chat-content">
+                                    <ul id="messages">
+                                        <li class="admin-message">Hello! How can I assist you today?</li>
+
+                                    </ul>
+                                </div>
+                                <div class="chat-footer">
+                                    <input id="messageInput" type="text" placeholder="Enter your message..." />
+                                    <button id="sendButton">Send</button>
+                                </div>
+                            </div>
 
                         }
                         else if (HttpContextAccessor.HttpContext.Session.GetInt32("Type") == 0)
@@ -470,6 +493,206 @@
     @RenderBody()
       <!-- copyright section end -->
       <!-- Javascript files-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.7/signalr.min.js"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chathub")
+            .build();
+
+        let userMessageList = [{ user: 'admin', message: 'Hello! How can I assist you today?' }];
+
+
+        function loadUserMessages() {
+            const savedMessages = sessionStorage.getItem("userChatMessages");
+            if (savedMessages) {
+                userMessageList = JSON.parse(savedMessages);
+                displayMessages();
+            }
+        }
+
+        connection.on("ReceiveMessage", (user, message) => {
+            if (user === "@userName") {
+                if (message.startsWith("Admin: ")) {
+                    message = message.replace("Admin: ", "");
+                    userMessageList.push({ user: "admin", message: message });
+                } else {
+                    userMessageList.push({ user: user, message: message });
+                }
+
+                displayMessages(); 
+                saveUserMessages();
+            } else if (user === "admin") {
+                userMessageList.push({ user: "admin", message: message });
+                displayMessages();
+                saveUserMessages();
+            }
+        });
+
+
+        function displayMessages() {
+            const messagesDiv = document.getElementById("messages");
+            messagesDiv.innerHTML = ""; 
+            userMessageList.forEach(msg => {
+                const msgDiv = document.createElement("div");
+                if (msg.user.toLowerCase() === "admin") {
+                    msgDiv.classList.add("admin-message");
+                    msgDiv.textContent = msg.message;
+                } else {
+                    msgDiv.classList.add("user-message"); 
+                    msgDiv.textContent = msg.message;
+                }
+                messagesDiv.appendChild(msgDiv);
+            });
+        }
+
+        function saveUserMessages() {
+            sessionStorage.setItem("userChatMessages", JSON.stringify(userMessageList));
+        }
+
+        document.getElementById("sendButton").addEventListener("click", () => {
+            const message = document.getElementById("messageInput").value;
+            connection.invoke("SendMessage", "@userName", message); 
+            document.getElementById("messageInput").value = ""; 
+        });
+
+
+        // Bắt đầu kết nối
+        connection.start().then(() => {
+            loadUserMessages();
+        }).catch(err => console.error(err));
+    </script>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+        .admin-message {
+            text-align: left;
+            background-color: #e6e6e6;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+            align-self: flex-start;
+            margin-left: -5px;
+            margin-bottom: 5px;
+        }
+
+        /* Thiết lập cho tin nhắn của user */
+        .user-message {
+            text-align: right;
+            background-color: #0084ff;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+            align-self: flex-end;
+            margin-left: 58px;
+            text-align: right;
+            margin-bottom: 5px;
+        }
+
+        .messenger-button {
+            position: fixed;
+            z-index: 1000;
+            padding: 0;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #messengerButton {
+            bottom: 100px; /* Vị trí của chat box */
+            right: 20px;
+        }
+
+        #externalMessengerButton {
+            bottom: 20px; /* Vị trí của Messenger link */
+            right: 20px;
+        }
+
+        .chat-box {
+            display: none; /* Ẩn chat box ban đầu */
+            position: fixed;
+            bottom: 15px; /* Cách logo một chút */
+            right: 120px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            width: 300px;
+            height: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 2000;
+            border-top-left-radius: 15px; /* Tăng độ tròn góc trái trên */
+            border-top-right-radius: 15px; /* Tăng độ tròn góc phải trên */
+        }
+
+        .chat-header {
+            background-color: #244eb3;
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            display: flex;
+            align-items: center;
+            border-top-left-radius: 15px; /* Tăng độ tròn góc trái trên */
+            border-top-right-radius: 15px; /* Tăng độ tròn góc phải trên */
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .chat-content {
+            padding: 10px;
+            height: 295px;
+            overflow-y: auto; /* Cuộn khi có nhiều tin nhắn */
+        }
+
+        .chat-footer {
+            display: flex;
+            padding: 5px;
+        }
+
+            .chat-footer input {
+                flex: 1;
+                padding: 5px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
+            .chat-footer button {
+                padding: 5px 10px;
+                margin-left: 5px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
+        .close-button {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .messenger-icon {
+            width: 70px;
+            height: 70px;
+        }
+    </style>
+    <script>
+        document.getElementById('messengerButton').onclick = function (event) {
+            event.preventDefault(); // Ngăn chặn chuyển hướng
+            document.getElementById('chatBox').style.display = 'block';
+        };
+
+        document.getElementById('closeChat').onclick = function () {
+            document.getElementById('chatBox').style.display = 'none';
+        };
+    </script>
       <script src="/js/jquery.min.js"></script>
       <script src="/js/popper.min.js"></script>
       <script src="/js/bootstrap.bundle.min.js"></script>

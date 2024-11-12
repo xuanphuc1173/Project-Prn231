@@ -88,7 +88,7 @@ namespace API.Controllers
             var base64Image = Convert.ToBase64String(imageBytes);
 
             // Tạo đối tượng sản phẩm mới từ thông tin trong model
-            var newBook = new Car
+            var newCar = new Car
             {
                 Brand = car.Brand,
                 Model = car.Model,
@@ -104,8 +104,8 @@ namespace API.Controllers
             };
 
             // Lưu sản phẩm vào cơ sở dữ liệu
-            await carRepository.Add(newBook);
-                return Ok(newBook); // Trả về sản phẩm đã thêm
+            await carRepository.Add(newCar);
+                return Ok(newCar); // Trả về sản phẩm đã thêm
 }
         }
 
