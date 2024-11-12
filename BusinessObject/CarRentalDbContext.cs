@@ -44,7 +44,7 @@ namespace BusinessObject
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.BusinessObject.json", true, true);
+                .AddJsonFile("appsettings.json", true, true);
             IConfigurationRoot configuration = builder.Build();
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         }

@@ -33,7 +33,6 @@ D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\refint\MVC.
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.pdb
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.genruntimeconfig.cache
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\ref\MVC.dll
-D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\appsettings.BusinessObject.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\Azure.Core.dll
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\Azure.Identity.dll
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\Humanizer.dll

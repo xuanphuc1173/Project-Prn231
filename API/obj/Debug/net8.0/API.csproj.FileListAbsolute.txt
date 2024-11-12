@@ -1,6 +1,5 @@
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\API\bin\Debug\net8.0\appsettings.Development.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\API\bin\Debug\net8.0\API.exe
-D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\API\bin\Debug\net8.0\appsettings.BusinessObject.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\API\bin\Debug\net8.0\appsettings.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\API\bin\Debug\net8.0\API.deps.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\API\bin\Debug\net8.0\API.runtimeconfig.json

@@ -74,30 +74,43 @@
                             <li class="nav-item">
                                 <a class="nav-link" >Contact</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link"><i class="fa fa-user-o" aria-hidden="true"></i></a>
+                            <li class="nav-item has-submenu">
+                                <a class="nav-link"><i class="fa-solid fa-user" aria-hidden="true" style="margin-top:5px;padding-bottom: 10px;"></i></a>
 
                                 <ul class="sub-menu" style="position: absolute;
-    background-color: white;
-    width: 210px;
-    height: 200px;
-    display: none;
-    list-style: none;
-    padding-left: 10px;">
-
-                                    <li>
+        background-color: white;
+        width: 210px;
+        height: 200px;
+        display: none;
+        list-style: none;
+        padding-left: 10px;
+    margin-left: 20px;">
+                                    <li style="padding: 10px;font-size: 20px;">
                                         <a asp-controller="EditProfile" asp-action="Index" asp-route-Id="@((int?)Context.Session.GetInt32("AccountId"))">Edit Profile</a>
                                     </li>
-                                    <li>
+                                    <li style="padding: 10px;font-size: 20px;">
                                         <a asp-controller="ChangePassword" asp-action="ChangePassword" asp-route-Id="@((int?)Context.Session.GetInt32("AccountId"))">Change Password</a>
                                     </li>
-                                    <li>
-                                        <a asp-controller="Account" asp-action="Logout">
-                                            Logout
-                                        </a>
+                                    <li style="padding: 10px;font-size: 20px;">
+                                        <a asp-controller="Account" asp-action="Logout">Logout</a>
                                     </li>
                                 </ul>
                             </li>
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const navItem = document.querySelector('.nav-item.has-submenu');
+                                    const subMenu = navItem.querySelector('.sub-menu');
+
+                                    navItem.addEventListener('mouseenter', function () {
+                                        subMenu.style.display = 'block';
+                                    });
+
+                                    navItem.addEventListener('mouseleave', function () {
+                                        subMenu.style.display = 'none';
+                                    });
+                                });
+
+                            </script>
 
                         }
                         else if (HttpContextAccessor.HttpContext.Session.GetInt32("Type") == 0)
