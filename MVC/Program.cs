@@ -1,4 +1,6 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Service;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -11,6 +13,13 @@ builder.Services.AddSession(options =>
 	options.Cookie.HttpOnly = true; // Bảo mật session
 	options.Cookie.IsEssential = true; // Bắt buộc phải có cookie
 });
+void ConfigureHttpClient(HttpClient client)
+{
+    client.BaseAddress = new Uri("https://localhost:7296/odata/");
+}
+builder.Services.AddHttpClient<ICustomerService, CustomerService>(ConfigureHttpClient);
+builder.Services.AddHttpClient<ICarService, CarService>(ConfigureHttpClient);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

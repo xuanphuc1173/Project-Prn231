@@ -16,6 +16,7 @@ namespace DTO
         public string LicensePlate { get; set; }
         public string Status { get; set; }
         public decimal PricePerDay { get; set; }
+        public int CategoryId { get; set; }
         public string ImageUrl { get; set; }
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;

@@ -14,13 +14,13 @@ namespace BusinessObject
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
-        public DateTime? DateOfBirth { get; set; }
+        public DateOnly DateOfBirth { get; set; }
         public string DriverLicenseNumber { get; set; }
         public int Type { get; set; }
 
 
         // Navigation properties
-        public ICollection<Booking> Bookings { get; set; }
+        public ICollection<Booking>? Bookings { get; set; }
     }
 
 }

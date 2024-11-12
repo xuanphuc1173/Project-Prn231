@@ -277,3 +277,6 @@ D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\refint\MVC.
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.pdb
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\MVC.genruntimeconfig.cache
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\obj\Debug\net8.0\ref\MVC.dll
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\Service.dll
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\MVC\bin\Debug\net8.0\Service.pdb

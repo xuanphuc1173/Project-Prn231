@@ -9,7 +9,7 @@ namespace MVC.Controllers
 	public class AccountController : Controller
 	{
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly string CustomerApiUrl = "https://localhost:7296/api/Customers";
+        private readonly string CustomerApiUrl = "https://localhost:7296/odata/Customers";
 
         public AccountController(IHttpClientFactory httpClientFactory)
         {
@@ -54,7 +54,7 @@ namespace MVC.Controllers
                 {
                     TempData["SuccessMessage"] = "Login successful!";
                     TempData["FullName"] = "Welcome " + result.FullName;
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Client");
                 }
                 else if (result.Type == 0)
                 {

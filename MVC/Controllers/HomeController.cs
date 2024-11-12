@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MVC.Models;
+using Service;
 using System.Diagnostics;
 
 namespace MVC.Controllers
@@ -7,15 +8,19 @@ namespace MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICarService carService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICarService carService)
         {
             _logger = logger;
+            this.carService = carService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var books = await carService.GetCarAll();
+
+            return View(books);
         }
 
         public IActionResult about()

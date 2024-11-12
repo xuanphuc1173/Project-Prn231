@@ -10,3 +10,4 @@ D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DTO\obj\Debug\net8.0\DTO.dll
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DTO\obj\Debug\net8.0\refint\DTO.dll
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DTO\obj\Debug\net8.0\DTO.pdb
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DTO\obj\Debug\net8.0\ref\DTO.dll
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\DTO\obj\Debug\net8.0\DTO.csproj.AssemblyReference.cache

@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BusinessObject;
 using Repositories;
+using static System.Reflection.Metadata.BlobBuilder;
+using System.IO;
+using DTO;
 
 namespace API.Controllers
 {
@@ -15,10 +18,12 @@ namespace API.Controllers
     public class CarsController : ControllerBase
     {
         private readonly ICarRepository carRepository;
+        private readonly IWebHostEnvironment _env;
 
-        public CarsController()
+        public CarsController(IWebHostEnvironment env)
         {
             carRepository = new CarRepository();    
+            _env = env;
         }
 
         // GET: api/Cars
@@ -68,14 +73,40 @@ namespace API.Controllers
         // POST: api/Cars
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost("Add")]
-        public async Task<ActionResult> PostCar([FromBody]Car car)
-        {
-            if (!ModelState.IsValid)
+        public async Task<ActionResult> PostCar([FromForm] CarCreate car)
+        { 
+            if (car.ImageUrl == null || car.ImageUrl.Length == 0)
             {
-                return BadRequest(ModelState);
-            }
-            await carRepository.Add(car);
-            return Ok(car);
+                return BadRequest("No image uploaded.");
+    }
+
+            // Chuyển đổi hình ảnh thành chuỗi Base64
+            using (var memoryStream = new MemoryStream())
+            {
+                await car.ImageUrl.CopyToAsync(memoryStream);
+            var imageBytes = memoryStream.ToArray();
+            var base64Image = Convert.ToBase64String(imageBytes);
+
+            // Tạo đối tượng sản phẩm mới từ thông tin trong model
+            var newBook = new Car
+            {
+                Brand = car.Brand,
+                Model = car.Model,
+                Year = car.Year,
+                Color = car.Color,
+                LicensePlate = car.LicensePlate,
+                Status = car.Status,
+                PricePerDay = car.PricePerDay,
+                Description = car.Description,
+                CreatedDate = car.CreatedDate,
+                CategoryId=car.CategoryId,
+                ImageUrl = base64Image, 
+            };
+
+            // Lưu sản phẩm vào cơ sở dữ liệu
+            await carRepository.Add(newBook);
+                return Ok(newBook); // Trả về sản phẩm đã thêm
+}
         }
 
         // DELETE: api/Cars/5

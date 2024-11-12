@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "J4w23aqXN4ddqk+anMUdZK4RS4t+GN4o8XLG31StgUX5K2ey7Ih1Gz4CHRPMTQRn4YPhX63Vy6pXCFittCIBFg==",
+  "dgSpecHash": "G2DLzfU9M8Qod6R07+eav54j4QE4HIoG9I4OxjE121K2B3XK/Fo3VE70oIUegSArb+I4WYgK9l00q7DGuFHY3g==",
   "success": true,
   "projectFilePath": "D:\\FPT\\chuyennghanh8\\prn231\\code\\Project-PRN231\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -56,6 +56,7 @@
     "C:\\Users\\USER\\.nuget\\packages\\humanizer.core.zh-cn\\2.14.1\\humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.odata\\9.0.0\\microsoft.aspnetcore.odata.9.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.24\\microsoft.aspnetcore.razor.language.6.0.24.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
