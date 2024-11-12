@@ -1,4 +1,4 @@
-﻿@* @model IEnumerable<DTO.CarDTO>
+﻿@model IEnumerable<DTO.CarDTO>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -10,22 +10,20 @@
         <div class="row" id="product-list">
             @foreach (var item in Model)
             {
+
                 <div class="col-md-4 mb-4 product-item" data-product-id="@item.CarId">
-                    <div class="card h-100" style="width: 18rem;">
-                        <img src="data:image/jpeg;base64,@item.ImageUrl" class="card-img-top" alt="Product Image" />
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <h5 class="card-title text-primary">@item.Brand</h5>
-                                <p class="card-text fw-bold">@item.Model</p>
+                    <div class="gallery_box">
+                        <div class="gallery_img"><img src="data:image/jpeg;base64,@item.ImageUrl"></div>
+                        <h3 class="types_text">@item.Model</h3>
+                        <h4 class="types_text">@item.Brand</h4>
+                        <p class="looking_text"> Price: @item.PricePerDay</p>
+
+                        <form asp-controller="Client" asp-action="Details" method="get">
+                            <input type="hidden" name="id" value="@item.CarId" />
+                            <div class="read_bt">
+                                <a href="javascript:void(0);" onclick="this.closest('form').submit();">Book Now</a>
                             </div>
-
-                            <p>Price:@item.PricePerDay</p>
-
-                            <form method="post" asp-page-handler="AddToCart">
-                                <input type="hidden" name="ProductId" value="@item.CarId" />
-                                <button class="btn btn-primary">Add to Cart</button>
-                            </form>
-                        </div>
+                        </form>
                     </div>
                 </div>
             }
@@ -35,4 +33,4 @@
     {
         <p>No products available.</p>
     }
-</div> *@
+</div>
