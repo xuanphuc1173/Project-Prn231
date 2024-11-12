@@ -9,7 +9,7 @@ using BusinessObject;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("odata/[controller]")]
     [ApiController]
     public class CarReviewsController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace API.Controllers
         }
 
         // GET: api/CarReviews
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<ActionResult<IEnumerable<CarReview>>> GetCarReviews()
         {
             return await _context.CarReviews.ToListAsync();
@@ -74,7 +74,7 @@ namespace API.Controllers
 
         // POST: api/CarReviews
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("Add")]
         public async Task<ActionResult<CarReview>> PostCarReview(CarReview carReview)
         {
             _context.CarReviews.Add(carReview);

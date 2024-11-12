@@ -1,7 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using API;
+using BusinessObject;
+using Microsoft.AspNetCore.OData;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddScoped(typeof(CarRentalDbContext));
+builder.Services.AddControllers().AddOData(
+    o => o.Select().Filter().OrderBy().Expand().Count().SetMaxTop(null)
+    .AddRouteComponents("odata", EDMModelBuilder.GetEDMModel())
+    );
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

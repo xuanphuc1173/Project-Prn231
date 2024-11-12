@@ -11,7 +11,7 @@ using DTO;
 using Repositories;
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("odata/[controller]")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
@@ -49,7 +49,7 @@ namespace API.Controllers
             return Ok(responseDto);
         }
         // GET: api/Customers
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<IEnumerable<Customer>> GetCustomers()
         {
             var customer = await customerRepository.GetCustomerAll();
@@ -90,7 +90,7 @@ namespace API.Controllers
 
         // POST: api/Customers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("Add")]
         public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
         {
             if (!ModelState.IsValid)

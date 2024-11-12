@@ -1,3 +1,4 @@
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Repositories\bin\Debug\net8.0\appsettings.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Repositories\bin\Debug\net8.0\Repositories.deps.json
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Repositories\bin\Debug\net8.0\Repositories.dll
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Repositories\bin\Debug\net8.0\Repositories.pdb
@@ -16,4 +17,3 @@ D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Repositories\obj\Debug\net8.0\Re
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Repositories\obj\Debug\net8.0\refint\Repositories.dll
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Repositories\obj\Debug\net8.0\Repositories.pdb
 D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Repositories\obj\Debug\net8.0\ref\Repositories.dll
-D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Repositories\bin\Debug\net8.0\appsettings.json

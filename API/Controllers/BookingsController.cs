@@ -9,7 +9,7 @@ using BusinessObject;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("odata/[controller]")]
     [ApiController]
     public class BookingsController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace API.Controllers
         }
 
         // GET: api/Bookings
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<ActionResult<IEnumerable<Booking>>> GetBookings()
         {
             return await _context.Bookings.ToListAsync();
@@ -74,7 +74,7 @@ namespace API.Controllers
 
         // POST: api/Bookings
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("Add")]
         public async Task<ActionResult<Booking>> PostBooking(Booking booking)
         {
             _context.Bookings.Add(booking);
