@@ -1,0 +1,16 @@
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\bin\Debug\net8.0\Service.deps.json
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\bin\Debug\net8.0\Service.dll
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\bin\Debug\net8.0\Service.pdb
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\bin\Debug\net8.0\DTO.dll
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\bin\Debug\net8.0\DTO.pdb
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\obj\Debug\net8.0\Service.csproj.AssemblyReference.cache
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\obj\Debug\net8.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\obj\Debug\net8.0\Service.AssemblyInfoInputs.cache
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\obj\Debug\net8.0\Service.AssemblyInfo.cs
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\obj\Debug\net8.0\Service.csproj.CoreCompileInputs.cache
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\obj\Debug\net8.0\Service.sourcelink.json
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\obj\Debug\net8.0\Service.csproj.Up2Date
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\obj\Debug\net8.0\Service.dll
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\obj\Debug\net8.0\refint\Service.dll
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\obj\Debug\net8.0\Service.pdb
+D:\FPT\chuyennghanh8\prn231\code\Project-PRN231\Service\obj\Debug\net8.0\ref\Service.dll
