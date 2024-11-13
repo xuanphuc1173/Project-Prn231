@@ -39,6 +39,7 @@ namespace API.Controllers
             }
 
             return booking;
+            //return booking;
         }
 
         // PUT: api/Bookings/5
