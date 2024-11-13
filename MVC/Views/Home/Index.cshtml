@@ -18,12 +18,7 @@
                         <h4 class="types_text">@item.Brand</h4>
                         <p class="looking_text"> Price: @item.PricePerDay</p>
 
-                        <form asp-controller="Client" asp-action="Details" method="get">
-                            <input type="hidden" name="id" value="@item.CarId" />
-                            <div class="read_bt">
-                                <a href="javascript:void(0);" onclick="this.closest('form').submit();">Book Now</a>
-                            </div>
-                        </form>
+                       
                     </div>
                 </div>
             }

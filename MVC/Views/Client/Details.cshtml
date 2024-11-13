@@ -137,41 +137,48 @@
 
     <div class="container mt-5">
         <!-- Car Details Section -->
-        <div class="card shadow-sm mb-4">
-            <div class="card-body">
-                <h3 class="card-title text-center">Car Details</h3>
-                <dl class="row">
-                    <dt class="col-sm-3 font-weight-bold">Brand</dt>
-                    <dd class="col-sm-9">@Model.Brand</dd>
+        <section class="py-5">
+            <div class="container">
+                <div class="row gx-5">
+                    <aside class="col-lg-6">
+                        <div class="border rounded-4 mb-3 d-flex justify-content-center">
+                            <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp">
+                                <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="data:image/jpeg;base64,@Model.ImageUrl" />
+                            </a>
+                        </div>
+                    </aside>
+                    <main class="col-lg-6">
+                        <div class="ps-lg-3">
+                            <h4 class="title text-dark" style="font-weight: bold; font-size: 32px;">
+                                @Model.Model
+                            </h4>
+                            <div class="mb-3" text-start>
+                                <span style="color: red;">Price: @Model.PricePerDay</span>
+                            </div>
 
-                    <dt class="col-sm-3 font-weight-bold">Model</dt>
-                    <dd class="col-sm-9">@Model.Model</dd>
+                            <a>
+                                @Model.Description
+                            </a>
+                            <hr />
+                            <div class="row">
+                                <dt class="col-3">Brand:</dt>
+                                <dd class="col-9">@Model.Brand</dd>
 
-                    <dt class="col-sm-3 font-weight-bold">Year</dt>
-                    <dd class="col-sm-9">@Model.Year</dd>
+                                <dt class="col-3">Year:</dt>
+                                <dd class="col-9">@Model.Year</dd>
 
-                    <dt class="col-sm-3 font-weight-bold">Color</dt>
-                    <dd class="col-sm-9">@Model.Color</dd>
+                                <dt class="col-3">Color:</dt>
+                                <dd class="col-9">@Model.Color</dd>
 
-                    <dt class="col-sm-3 font-weight-bold">License Plate</dt>
-                    <dd class="col-sm-9">@Model.LicensePlate</dd>
-
-                    <dt class="col-sm-3 font-weight-bold">Price Per Day</dt>
-                    <dd class="col-sm-9">@Model.PricePerDay</dd>
-
-                    <dt class="col-sm-3 font-weight-bold">Category ID</dt>
-                    <dd class="col-sm-9">@Model.CategoryId</dd>
-
-                    <dt class="col-sm-3 font-weight-bold">Description</dt>
-                    <dd class="col-sm-9">@Model.Description</dd>
-
-                    <dt class="col-sm-3 font-weight-bold">Image</dt>
-                    <dd class="col-sm-9">
-                        <img src="data:image/jpeg;base64,@Model.ImageUrl" class="img-fluid rounded" alt="Car Image" />
-                    </dd>
-                </dl>
+                                <dt class="col-3">License Plate:</dt>
+                                <dd class="col-9">@Model.LicensePlate</dd>
+                            </div>
+                            <div class="read_bt"><a href="#">Book Now</a></div>
+                        </div>
+                    </main>
+                </div>
             </div>
-        </div>
+        </section>
 
         <!-- Booking Form -->
         <div class="card shadow-sm">

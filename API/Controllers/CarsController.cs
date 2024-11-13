@@ -10,12 +10,13 @@ using Repositories;
 using static System.Reflection.Metadata.BlobBuilder;
 using System.IO;
 using DTO;
+using Microsoft.AspNetCore.OData.Routing.Controllers;
 
 namespace API.Controllers
 {
     [Route("odata/[controller]")]
     [ApiController]
-    public class CarsController : ControllerBase
+    public class CarsController : ODataController
     {
         private readonly ICarRepository carRepository;
         private readonly IWebHostEnvironment _env;

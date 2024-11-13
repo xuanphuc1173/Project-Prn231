@@ -13,14 +13,12 @@ namespace MVC.Hubs
         {
             _httpContextAccessor = httpContextAccessor;
         }
-        // Phương thức này được gọi khi người dùng kết nối
         public override async Task OnConnectedAsync()
         {
-            // Lấy AccountId từ session
             var accountId = _httpContextAccessor.HttpContext.Session.GetString("CustomerId");
             if (accountId != null)
             {
-                ConnectedUsers[accountId] = Context.ConnectionId; // Lưu kết nối
+                ConnectedUsers[accountId] = Context.ConnectionId; 
                 await Clients.All.SendAsync("UserConnected", accountId);
             }
             await base.OnConnectedAsync();
@@ -29,15 +27,13 @@ namespace MVC.Hubs
         {
             await Clients.All.SendAsync("ReceiveMessage", user, message);
         }
-        // Gửi tin nhắn từ admin đến người dùng
 
-        // Phương thức này được gọi khi người dùng ngắt kết nối
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
             var accountId = _httpContextAccessor.HttpContext.Session.GetString("AccountId");
             if (accountId != null)
             {
-                ConnectedUsers.TryRemove(accountId, out _); // Xóa kết nối
+                ConnectedUsers.TryRemove(accountId, out _); 
                 await Clients.All.SendAsync("UserDisconnected", accountId);
             }
             await base.OnDisconnectedAsync(exception);
