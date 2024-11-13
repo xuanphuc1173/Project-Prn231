@@ -84,7 +84,7 @@ namespace API.Controllers
             // Chuyển đổi hình ảnh thành chuỗi Base64
             using (var memoryStream = new MemoryStream())
             {
-                await car.ImageUrl.CopyToAsync(memoryStream);
+                //await car.ImageUrl.CopyToAsync(memoryStream);
             var imageBytes = memoryStream.ToArray();
             var base64Image = Convert.ToBase64String(imageBytes);
 

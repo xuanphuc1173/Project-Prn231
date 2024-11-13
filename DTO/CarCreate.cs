@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+//using Microsoft.AspNetCore.Http;
 
 namespace DTO
 {
@@ -16,7 +16,7 @@ namespace DTO
         public string LicensePlate { get; set; }
         public string Status { get; set; }
         public decimal PricePerDay { get; set; }
-        public IFormFile ImageUrl { get; set; }
+        public string ImageUrl { get; set; }
         public string Description { get; set; }
         public int CategoryId { get; set; }
 
