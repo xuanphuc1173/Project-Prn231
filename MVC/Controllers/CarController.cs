@@ -70,11 +70,11 @@ namespace MVC.Controllers
                     try
                     {
                         var memoryStream = new MemoryStream();
-                        await car.ImageUrl.CopyToAsync(memoryStream);
+                        //await car.ImageUrl.CopyToAsync(memoryStream);
                         memoryStream.Position = 0;
                         var fileContent = new StreamContent(memoryStream);
-                        fileContent.Headers.ContentType = new MediaTypeHeaderValue(car.ImageUrl.ContentType);
-                        content.Add(fileContent, "ImageUrl", car.ImageUrl.FileName);
+                        //fileContent.Headers.ContentType = new MediaTypeHeaderValue(car.ImageUrl.ContentType);
+                        //content.Add(fileContent, "ImageUrl", car.ImageUrl.FileName);
                     }
                     catch (IOException ioEx)
                     {
